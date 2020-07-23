@@ -10,6 +10,7 @@
         android:layout_width="200dp"
         android:layout_height="44dp"
         android:gravity="top"
+        android:textStyle="bold"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@color/colorBlack"
         tools:text="title" />
@@ -20,6 +21,7 @@
         android:layout_height="44dp"
         android:layout_toRightOf="@+id/article_title_top"
         android:gravity="top"
+        android:textStyle="bold"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@color/colorBlack"
         tools:text="section"
@@ -31,6 +33,7 @@
         android:layout_height="44dp"
         android:layout_below="@+id/article_title_top"
         android:gravity="bottom"
+        android:textStyle="bold"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@color/colorBlack"
         tools:text="name" />
@@ -42,6 +45,7 @@
         android:layout_below="@+id/section_name_top"
         android:layout_toRightOf="@+id/author_name_bottom"
         android:gravity="bottom"
+        android:textStyle="bold"
         android:textAppearance="?android:textAppearanceMedium"
         android:textColor="@color/colorBlack"
         tools:text="date"
