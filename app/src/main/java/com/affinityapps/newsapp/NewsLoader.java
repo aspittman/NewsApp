@@ -10,9 +10,9 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
     private String newsUrl;
 
-    public NewsLoader(Context context, String url) {
+    public NewsLoader(Context context, String newsUrl) {
         super(context);
-        newsUrl = url;
+        this.newsUrl = newsUrl;
     }
 
     @Override

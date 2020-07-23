@@ -123,7 +123,7 @@ public class NewsUtils {
                 JSONObject jsonObject = jsonNewsArray.getJSONObject(i);
                 String jsonArticleTitle = jsonObject.getString("webTitle");
                 String jsonSectionName = jsonObject.getString("sectionName");
-                String jsonAuthorName = jsonObject.getString("authorName");
+                String jsonAuthorName = jsonObject.getString("pillarId");
                 String jsonDatePublished = jsonObject.getString("webPublicationDate");
                 String jsonWebUrl = jsonObject.getString("webUrl");
 
