@@ -23,10 +23,10 @@ import java.util.List;
 public class NewsActivity extends AppCompatActivity
 implements LoaderManager.LoaderCallbacks<List<News>> {
 
-    private static final String guardianApi = "https://content.guardianapis.com/search?q=technology&api-key=acc7bb9b-e342-4356-abab-c210c6f4807e";
-    private static final String LOG_TAG = NewsActivity.class.getName();
+    private static final String COMPLETE_GUARDIAN_API_URL = "https://content.guardianapis.com/search?q=technology&show-tags=contributor&api-key=acc7bb9b-e342-4356-abab-c210c6f4807e";
     private static final String QUERY_PARAM = "q";
-    private static final String TYPE_PARAM = "api-key";
+    private static final String SHOW_TAGS_PARAM = "show-tags";
+    private static final String API_KEY_PARAM = "api-key";
     private static final int NEWS_LOADER_ID = 0;
 
     private NewsListAdapter newsListAdapter;
@@ -87,7 +87,8 @@ implements LoaderManager.LoaderCallbacks<List<News>> {
                 .authority("content.guardianapis.com")
                 .appendPath("search")
                 .appendQueryParameter(QUERY_PARAM, "technology")
-                .appendQueryParameter(TYPE_PARAM, "acc7bb9b-e342-4356-abab-c210c6f4807e");
+                .appendQueryParameter(SHOW_TAGS_PARAM, "contributor")
+                .appendQueryParameter(API_KEY_PARAM, "acc7bb9b-e342-4356-abab-c210c6f4807e");
 
         return new NewsLoader(this, builder.toString());
     }

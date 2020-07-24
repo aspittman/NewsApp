@@ -4,18 +4,29 @@ public class News {
 
     private String articleTitle;
     private String sectionName;
-    private String authorName;
+    private String authorFirstName;
+    private String authorLastName;
     private String datePublished;
     private String newsStoryUrl;
 
 
-    public News(String articleTitle, String sectionName, String authorName, String datePublished, String newsStoryUrl) {
+    public News() {
+    }
+
+    public News(String authorFirstName, String authorLastName) {
+        this.authorFirstName = authorFirstName;
+        this.authorLastName = authorLastName;
+    }
+
+    public News(String articleTitle, String sectionName, String authorFirstName, String authorLastName, String datePublished, String newsStoryUrl) {
         this.articleTitle = articleTitle;
         this.sectionName = sectionName;
-        this.authorName = authorName;
+        this.authorFirstName = authorFirstName;
+        this.authorLastName = authorLastName;
         this.datePublished = datePublished;
         this.newsStoryUrl = newsStoryUrl;
     }
+
 
     public String getArticleTitle() {
         return articleTitle;
@@ -33,12 +44,20 @@ public class News {
         this.sectionName = sectionName;
     }
 
-    public String getAuthorName() {
-        return authorName;
+    public String getAuthorFirstName() {
+        return authorFirstName;
     }
 
-    public void setAuthorName(String authorName) {
-        this.authorName = authorName;
+    public void setAuthorFirstName(String authorFirstName) {
+        this.authorFirstName = authorFirstName;
+    }
+
+    public String getAuthorLastName() {
+        return authorLastName;
+    }
+
+    public void setAuthorLastName(String authorLastName) {
+        this.authorLastName = authorLastName;
     }
 
     public String getDatePublished() {

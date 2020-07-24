@@ -28,13 +28,15 @@ public class NewsListAdapter extends ArrayAdapter<News> {
 
         TextView articleTitleTextView = convertView.findViewById(R.id.article_title_top);
         TextView sectionNameTextView = convertView.findViewById(R.id.section_name_top);
-        TextView authorNameTextView = convertView.findViewById(R.id.author_name_bottom);
+        TextView authorFirstNameTextView = convertView.findViewById(R.id.author_first_name_bottom);
+        TextView authorLastNameTextView = convertView.findViewById(R.id.author_last_name_bottom);
         TextView datePublishedTextView = convertView.findViewById(R.id.date_published_bottom);
 
         assert newsPosition != null;
         articleTitleTextView.setText(newsPosition.getArticleTitle());
         sectionNameTextView.setText(newsPosition.getSectionName());
-        authorNameTextView.setText(newsPosition.getAuthorName());
+        authorFirstNameTextView.setText(newsPosition.getAuthorFirstName());
+        authorLastNameTextView.setText(newsPosition.getAuthorLastName());
         datePublishedTextView.setText(newsPosition.getDatePublished());
 
         return convertView;

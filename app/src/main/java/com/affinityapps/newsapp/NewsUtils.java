@@ -9,6 +9,7 @@ import androidx.annotation.RequiresApi;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -112,7 +113,7 @@ public class NewsUtils {
         }
 
         List<News> newsList = new ArrayList<>();
-
+        News news = new News();
         try {
             JSONObject newsParser = new JSONObject(newsJson);
             JSONObject jsonResponse = newsParser.getJSONObject("response");
@@ -123,13 +124,26 @@ public class NewsUtils {
                 JSONObject jsonObject = jsonNewsArray.getJSONObject(i);
                 String jsonArticleTitle = jsonObject.getString("webTitle");
                 String jsonSectionName = jsonObject.getString("sectionName");
-                String jsonAuthorName = jsonObject.getString("pillarId");
                 String jsonDatePublished = jsonObject.getString("webPublicationDate");
                 String jsonWebUrl = jsonObject.getString("webUrl");
 
-                newsList.add(new News(jsonArticleTitle, jsonSectionName, jsonAuthorName, jsonDatePublished, jsonWebUrl));
-            }
+                JSONArray jsonTagArray = jsonObject.getJSONArray("tags");
+                if (jsonTagArray.length() != 0) {
+                    for (int j = 0; j < jsonTagArray.length(); j++) {
+                        JSONObject jsonTagObject = jsonTagArray.getJSONObject(j);
 
+                        String jsonAuthorFirstName = jsonTagObject.getString("firstName");
+                        String jsonAuthorLastName = jsonTagObject.getString("lastName");
+
+                        news.setAuthorFirstName(jsonAuthorFirstName);
+                        news.setAuthorLastName(jsonAuthorLastName);
+                    }
+                } else {
+                    news.setAuthorFirstName("N/A");
+                    news.setAuthorLastName("N/A");
+                }
+                newsList.add(new News(jsonArticleTitle, jsonSectionName, news.getAuthorFirstName(), news.getAuthorLastName(), jsonDatePublished, jsonWebUrl));
+            }
         } catch (JSONException e) {
             Log.e("NewsUtils", "Problem parsing News Story JSON results", e);
         }
